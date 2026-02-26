@@ -63,6 +63,11 @@ class Exp_Basic(object):
         total_params = count_total_parameters(self.model)
         print(f"Learnable model parameters: {learable_params:,}")
         print(f"Total model parameters: {total_params:,}")
+
+        print("Trainable parameters:")
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                print(f"  {name}")
         
 
     def _build_model(self):
